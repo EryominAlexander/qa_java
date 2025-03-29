@@ -1,6 +1,5 @@
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import com.example.Lion;
@@ -12,12 +11,12 @@ import static org.junit.Assert.assertTrue;
 @RunWith(MockitoJUnitRunner.class)
 public class LionGetFoodTest {
     private final List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
-    @Mock
-    Lion lion;
+
+
     @Test
     public void getFoodTest() throws Exception {
-        Mockito.when(lion.getFood()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-
-        assertTrue(expectedList.containsAll(lion.getFood()) && lion.getFood().containsAll(expectedList));
+        Lion lion = new Lion("Самец");
+        Lion lionSpy = Mockito.spy(lion);
+        assertTrue(expectedList.containsAll(lionSpy.getFood()) && lionSpy.getFood().containsAll(expectedList));
     }
 }
