@@ -32,11 +32,11 @@ public class FelineTest {
     }
     @Test
     public void getKittensWithOutVariablesTest(){
-        Mockito.when( feline.getKittens() ).thenReturn(1);
-        assertEquals( expectedKittensCountWithOutVariables, feline.getKittens());
+        Mockito.when( feline.getChildren() ).thenReturn(1);
+        assertEquals( expectedKittensCountWithOutVariables, feline.getChildren());
     }
     @Test
     public void getKittensWithVariablesTest(){
-        assertEquals( expectedKittensCountWithVariables, feline.getKittens(10));
+        assertEquals( expectedKittensCountWithVariables, feline.getChildren(10));
     }
 }

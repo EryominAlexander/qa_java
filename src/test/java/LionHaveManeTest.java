@@ -1,3 +1,4 @@
+import com.example.Feline;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,9 +32,9 @@ public class LionHaveManeTest {
 
     @Test
     public void haveManeTest() throws Exception {
-        Lion lion = new Lion(sex);
-        Lion lionSpy = Mockito.spy(lion);
-        assertEquals(expectedAnswer, lionSpy.doesHaveMane());
+        Feline feline = Mockito.spy();
+        Lion lion = new Lion(sex, feline);
+        assertEquals(expectedAnswer, lion.doesHaveMane());
 
     }
 }

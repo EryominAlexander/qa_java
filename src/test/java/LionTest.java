@@ -1,7 +1,8 @@
+import com.example.Feline;
 import com.example.Lion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -14,22 +15,23 @@ public class LionTest {
     private final List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
     public final int expectedCountKittens = 1;
 
+    @Spy
+    Feline feline;
+
     @Test(expected = Exception.class)
     public void exceptionTest() throws Exception {
-        Lion lion = new Lion("Тест");
+        Lion lion = new Lion("Тест", feline);
     }
 
     @Test
     public void getFoodTest() throws Exception {
-        Lion lion = new Lion("Самец");
-        Lion lionSpy = Mockito.spy(lion);
-        assertTrue(expectedList.containsAll(lionSpy.getFood()) && lionSpy.getFood().containsAll(expectedList));
+        Lion lion = new Lion("Самец", feline);
+        assertTrue(expectedList.containsAll(lion.getFood()) && lion.getFood().containsAll(expectedList));
     }
 
     @Test
     public void getKittensTest() throws Exception {
-        Lion lion = new Lion("Самец");
-        Lion lionSpy = Mockito.spy(lion);
-        assertEquals( expectedCountKittens, lionSpy.getKittens());
+        Lion lion = new Lion("Самец", feline);
+        assertEquals( expectedCountKittens, lion.getKittens());
     }
 }
