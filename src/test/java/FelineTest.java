@@ -1,8 +1,6 @@
 import com.example.Feline;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
@@ -14,8 +12,6 @@ public class FelineTest {
     private final int expectedKittensCountWithOutVariables = 1;
     private final int expectedKittensCountWithVariables = 10;
 
-    @Spy
-    Feline felineSpy;
     @Test
     public void getEatTest() throws Exception {
         Feline feline = new Feline();
@@ -29,8 +25,8 @@ public class FelineTest {
     }
     @Test
     public void getKittensWithOutVariablesTest(){
-        Mockito.when( felineSpy.getChildren() ).thenReturn(1);
-        assertEquals( expectedKittensCountWithOutVariables, felineSpy.getChildren());
+        Feline feline = new Feline();
+        assertEquals( expectedKittensCountWithOutVariables, feline.getChildren());
     }
     @Test
     public void getKittensWithVariablesTest(){

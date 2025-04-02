@@ -32,7 +32,7 @@ public class LionHaveManeTest {
 
     @Test
     public void haveManeTest() throws Exception {
-        Feline feline = Mockito.spy();
+        Feline feline = Mockito.mock();
         Lion lion = new Lion(sex, feline);
         assertEquals(expectedAnswer, lion.doesHaveMane());
 
