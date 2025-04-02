@@ -17,14 +17,14 @@ public class CatTest {
     private final String expectedSound = "Мяу";
 
     @Mock
-    Cat cat;
+    Cat catMock;
     @Mock
     Feline feline;
 
     @Test
     public void getFoodTest() throws Exception {
-        Mockito.when(cat.getFood()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        assertEquals(expectedFoodList, cat.getFood());
+        Mockito.when(catMock.getFood()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        assertEquals(expectedFoodList, catMock.getFood());
     }
 
     @Test

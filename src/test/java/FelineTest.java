@@ -15,23 +15,26 @@ public class FelineTest {
     private final int expectedKittensCountWithVariables = 10;
 
     @Spy
-    Feline feline;
+    Feline felineSpy;
     @Test
     public void getEatTest() throws Exception {
+        Feline feline = new Feline();
         assertEquals( expectedFoodList, feline.eatMeat() );
     }
 
     @Test
     public void getFamilyTest(){
+        Feline feline = new Feline();
         assertEquals( expectedFamily, feline.getFamily());
     }
     @Test
     public void getKittensWithOutVariablesTest(){
-        Mockito.when( feline.getChildren() ).thenReturn(1);
-        assertEquals( expectedKittensCountWithOutVariables, feline.getChildren());
+        Mockito.when( felineSpy.getChildren() ).thenReturn(1);
+        assertEquals( expectedKittensCountWithOutVariables, felineSpy.getChildren());
     }
     @Test
     public void getKittensWithVariablesTest(){
+        Feline feline = new Feline();
         assertEquals( expectedKittensCountWithVariables, feline.getChildren(10));
     }
 }
