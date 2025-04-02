@@ -4,11 +4,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
@@ -21,11 +18,9 @@ public class FelineTest {
     Feline feline;
     @Test
     public void getEatTest() throws Exception {
-        assertTrue( expectedFoodList.containsAll(feline.eatMeat()) &&
-                feline.eatMeat().containsAll(expectedFoodList));
+        assertEquals( expectedFoodList, feline.eatMeat() );
     }
-   // @Spy
-   // Feline feline;
+
     @Test
     public void getFamilyTest(){
         assertEquals( expectedFamily, feline.getFamily());

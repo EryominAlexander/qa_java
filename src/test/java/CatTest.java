@@ -8,6 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -23,7 +24,7 @@ public class CatTest {
     @Test
     public void getFoodTest() throws Exception {
         Mockito.when(cat.getFood()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        assertTrue(expectedFoodList.containsAll(cat.getFood()) && cat.getFood().containsAll(expectedFoodList));
+        assertEquals(expectedFoodList, cat.getFood());
     }
 
     @Test
