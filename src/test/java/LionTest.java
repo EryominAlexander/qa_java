@@ -21,20 +21,18 @@ public class LionTest {
 
     @Test
     public void getFoodTest() throws Exception {
-        Feline feline = Mockito.spy();
-        /*
-         В методе .getFood() вызывается метод .eatMeat().
-         Метод .eatMeat() не относится к классу lion т.е. является его зависимостью, которую нужно убрать.
-         P.S. если правильно понял тему.
-         Аналогично для метода .getKittens()
-         */
+        Feline feline = Mockito.mock();
+        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+
         Lion lion = new Lion("Самец", feline);
         assertEquals(expectedList, lion.getFood());
     }
 
     @Test
     public void getKittensTest() throws Exception {
-        Feline feline = Mockito.spy();
+        Feline feline = Mockito.mock();
+        Mockito.when(feline.getChildren()).thenReturn(1);
+
         Lion lion = new Lion("Самец", feline);
         assertEquals( expectedCountKittens, lion.getKittens());
     }
